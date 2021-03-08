@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Création d'un compte</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #form="ngForm" (ngSubmit)="createAccount(form)">
+    <ion-item lines="full">
+      <ion-label position="floating">Nom</ion-label>
+      <ion-input name="lastName" ngModel type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Prénom</ion-label>
+      <ion-input name="firstName" ngModel type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Téléphone</ion-label>
+      <ion-input name="tel" ngModel type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input name="email" ngModel type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Type de compte</ion-label>
+      <ion-select okText="Okay" ngModel name="typeCompte">
+        <ion-select-option *ngFor="let typeC of typesC" [value]="typeC"
+          >{{ typeC }}</ion-select-option
+        >
+      </ion-select>
+    </ion-item>
+
+    <!--<ion-item lines="full">
+      <ion-label position="floating">Mot de passe</ion-label>
+      <ion-input type="password" required></ion-input>
+    </ion-item>-->
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="secondary" expand="block"
+          >Valider</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
+© 2021 Gestibank, Inc.
