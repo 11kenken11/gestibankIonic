@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-client-dashboard',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./client-dashboard.page.scss'],
 })
 export class ClientDashboardPage implements OnInit {
-
-  constructor() { }
+  email;
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.email = this.route.snapshot.params['email'];
   }
 
 }

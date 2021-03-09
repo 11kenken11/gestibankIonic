@@ -1,9 +1,42 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>client-dashboard</ion-title>
+    <ion-title>Gestibank Client</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="auth-form">
+  <ion-grid>
+    <ion-img
+      class="logo"
+      src="../assets/logo_gestibank.png"
+      alt="logo"
+    ></ion-img>
 
+    <ion-row>
+      <ion-col align-self-center>
+        <ion-button
+          class="client-dashboard-btn"
+          [routerLink]="['/client-dashboard', email, 'check-request']"
+          expand="block"
+          color="primary"
+          >Demande chèquier</ion-button
+        >
+        <ion-button
+          class="client-dashboard-btn"
+          [routerLink]="['/client-dashboard', email, 'history']"
+          expand="block"
+          color="primary"
+          >Historique</ion-button
+        >
+        <ion-button
+          class="client-dashboard-btn"
+          [routerLink]="['/client-dashboard', email, 'change-pwd']"
+          expand="block"
+          color="primary"
+          >Changer mot de passe</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+© 2021 Gestibank, Inc.

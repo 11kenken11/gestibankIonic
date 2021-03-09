@@ -41,4 +41,112 @@ export class UserService {
   );
 
  }
+
+
+
+ getClientsPendingDemands() {
+
+  return new Promise(
+    (resolve, reject) => {
+      this.httpClient.get<any[]>('http://127.0.0.1:85/users/pending').toPromise().then(
+        (response) => {
+          resolve(response.valueOf());
+          //this.emitUsersSubject();
+        }, (error) => {
+          console.log("erreur : " + error);
+        }
+      )
+    }
+  )
+}
+
+
+
+getClientsPendingDemandsByAgent(matricule: string) {
+
+  return new Promise(
+    (resolve, reject) => {
+      this.httpClient.get<any[]>('http://127.0.0.1:85/users/pending/' + matricule).toPromise().then(
+        (response) => {
+          resolve(response.valueOf());
+        }, (error) => {
+          console.log("erreur : " + error);
+        }
+      )
+    }
+  )
+}
+
+
+getUser(email: string) {
+  return new Promise(
+    (resolve, reject) => {
+      this.httpClient.get('http://127.0.0.1:85/user/' + email).toPromise().then(
+        (data) => {
+          resolve(data.valueOf());
+        }, (error) => {
+          reject(error);
+        }
+      );
+       
+    }
+  );
+  
+}
+
+
+updateUser(user) {
+  this.httpClient.put('http://127.0.0.1:85/users/' + user.email, user).subscribe(
+    () => {
+      console.log('user modifiée')
+    }, 
+    (error) => {
+     console.log('erreur : ' + error);
+    }
+  );
+ }
+
+
+ getAgents() {
+
+  return new Promise(
+    (resolve, reject) => {
+      this.httpClient.get<any[]>('http://127.0.0.1:85/agents').toPromise().then(
+        (response) => {
+          resolve(response.valueOf());
+          //this.emitUsersSubject();
+        }, (error) => {
+          console.log("erreur : " + error);
+        }
+      )
+    }
+  )
+}
+
+getAgent(matricule: string) {
+  return new Promise(
+    (resolve, reject) => {
+      this.httpClient.get('http://127.0.0.1:85/agents/' + matricule).toPromise().then(
+        (data) => {
+          resolve(data.valueOf());
+        }, (error) => {
+          reject(error);
+        }
+      );
+       
+    }
+  );
+}
+
+deleteUser(email: string) {
+  this.httpClient.delete('http://127.0.0.1:85/users/' + email).subscribe(
+    () => {
+     console.log('agent supprimée');
+    },
+    (error) => {
+      console.log('erreur : ' + error);
+    }
+  );
+}
+
 }

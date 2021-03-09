@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-agent-dashboard',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./agent-dashboard.page.scss'],
 })
 export class AgentDashboardPage implements OnInit {
-
-  constructor() { }
+  matricule;
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.matricule = this.route.snapshot.params['matricule'];
   }
 
 }

@@ -1,9 +1,42 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>admin-dashboard</ion-title>
+    <ion-title>Gestibank Admin</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="auth-form">
+  <ion-grid>
+    <ion-img
+      class="logo"
+      src="../assets/logo_gestibank.png"
+      alt="logo"
+    ></ion-img>
 
+    <ion-row>
+      <ion-col align-self-center>
+        <ion-button
+          class="admin-dashboard-btn"
+          [routerLink]="['/admin-dashboard/list-demands']"
+          expand="block"
+          color="primary"
+          >Consulter les demandes</ion-button
+        >
+        <ion-button
+          class="admin-dashboard-btn"
+          [routerLink]="['/admin-dashboard/list-agents']"
+          expand="block"
+          color="primary"
+          >consulter les agents</ion-button
+        >
+        <ion-button
+          class="admin-dashboard-btn"
+          [routerLink]="['/admin-dashboard/create-agent']"
+          expand="block"
+          color="primary"
+          >ajouter agent</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+© 2021 Gestibank, Inc.

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Validation des demandes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- List of Text Items -->
+  <ion-list *ngFor="let user of users">
+    <ion-item>
+      <ion-label
+        >{{ user.firstName }} {{user.lastName.toUpperCase()}}</ion-label
+      >
+      <ion-button type="submit" slot="end" (click)="valid(user.email)"
+        >Valider</ion-button
+      >
+      <ion-button
+        type="submit"
+        slot="end"
+        color="danger"
+        (click)="refuse(user.email)"
+        >Refuser</ion-button
+      >
+    </ion-item>
+  </ion-list>
+</ion-content>
+© 2021 Gestibank, Inc.

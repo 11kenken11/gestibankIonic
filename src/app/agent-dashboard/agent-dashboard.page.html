@@ -1,9 +1,42 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>agent-dashboard</ion-title>
+    <ion-title>Gestibank Agent</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="auth-form">
+  <ion-grid>
+    <ion-img
+      class="logo"
+      src="../assets/logo_gestibank.png"
+      alt="logo"
+    ></ion-img>
 
+    <ion-row>
+      <ion-col align-self-center>
+        <ion-button
+          class="agent-dashboard-btn"
+          [routerLink]="['/agent-dashboard', matricule, 'valid-client-demands']"
+          expand="block"
+          color="primary"
+          >Gérer les demandes</ion-button
+        >
+        <ion-button
+          class="agent-dashboard-btn"
+          [routerLink]="['/agent-dashboard', matricule,'valid-checks']"
+          expand="block"
+          color="primary"
+          >Gérer les chèquiers</ion-button
+        >
+        <ion-button
+          class="agent-dashboard-btn"
+          [routerLink]="['/agent-dashboard', matricule, 'change-pwd']"
+          expand="block"
+          color="primary"
+          >Changer mot de passe</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+© 2021 Gestibank, Inc.

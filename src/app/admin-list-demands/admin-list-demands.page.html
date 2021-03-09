@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Liste des demandes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- List of Text Items -->
+  <ion-list *ngFor="let user of users">
+    <form #form="ngForm" (ngSubmit)="affect(form)">
+      <ion-item>
+        <ion-input
+          name="userEmail"
+          [(ngModel)]="user.email"
+          type="text"
+          [value]="user.email"
+          required
+          hidden
+        ></ion-input>
+        <ion-label
+          >{{ user.firstName }} {{user.lastName.toUpperCase()}}</ion-label
+        >
+        <ion-item slot="end">
+          <!--<ion-label>Agents : </ion-label>-->
+          <select ngModel name="agentMatricule">
+            <option value="" selected disabled hidden>Agents</option>
+            <option *ngFor="let agent of agents" [ngValue]="agent.matricule">
+              {{ agent.matricule}}
+            </option>
+          </select>
+        </ion-item>
+        <!--<ion-list>
+          <ion-item *ngFor="let agent of agents">
+            <ion-label>{{ agent.matricule}}</ion-label>
+          </ion-item>
+        </ion-list>-->
+        <ion-button type="submit" slot="end">Affecter</ion-button>
+      </ion-item>
+    </form>
+  </ion-list>
+</ion-content>
+© 2021 Gestibank, Inc.

@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Création d'un agent</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form #form="ngForm" (ngSubmit)="createAgent(form)">
+    <ion-item lines="full">
+      <ion-label position="floating">Nom</ion-label>
+      <ion-input name="lastName" ngModel type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Prénom</ion-label>
+      <ion-input name="firstName" ngModel type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Téléphone</ion-label>
+      <ion-input name="tel" ngModel type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input name="email" ngModel type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Matricule</ion-label>
+      <ion-input name="matricule" ngModel type="text" required></ion-input>
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="secondary" expand="block"
+          >Valider</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
+© 2021 Gestibank, Inc.

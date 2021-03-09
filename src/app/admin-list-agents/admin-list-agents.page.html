@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Liste des agents</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- List of Text Items -->
+  <ion-list *ngFor="let agent of agents">
+    <form #form="ngForm" (ngSubmit)="delete(form)">
+      <ion-item>
+        <ion-input
+          name="email"
+          [(ngModel)]="agent.email"
+          type="text"
+          [value]="agent.email"
+          required
+          hidden
+        ></ion-input>
+        <ion-label
+          >{{ agent.firstName }} {{agent.lastName.toUpperCase()}}</ion-label
+        >
+
+        <ion-button type="submit" slot="end">Supprimer</ion-button>
+      </ion-item>
+    </form>
+  </ion-list>
+</ion-content>
+© 2021 Gestibank, Inc.

@@ -26,11 +26,11 @@ export class LoginPage implements OnInit {
             break;
           }
           case 'CLIENT': {
-            this.router.navigate(['/client-dashboard']);
+            this.router.navigate(['/client-dashboard', user.email]);
             break;
           }
           case 'AGENT': {
-            this.router.navigate(['/agent-dashboard']);
+            this.router.navigate(['/agent-dashboard',user.matricule]);
             break;
           }
         }
