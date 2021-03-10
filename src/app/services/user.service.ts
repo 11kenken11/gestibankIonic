@@ -149,4 +149,15 @@ deleteUser(email: string) {
   );
 }
 
+requestNewPwd(email: string) {
+  this.httpClient.put('http://127.0.0.1:85/forgot-password/' + email, null).subscribe(
+    () => {
+      console.log('new pwd sent')
+    }, 
+    (error) => {
+     console.log('erreur : ' + error);
+    }
+  );
+}
+
 }

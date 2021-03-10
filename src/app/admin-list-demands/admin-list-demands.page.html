@@ -20,7 +20,7 @@
           required
           hidden
         ></ion-input>
-        <ion-label
+        <ion-label class="name-label"
           >{{ user.firstName }} {{user.lastName.toUpperCase()}}</ion-label
         >
         <ion-item slot="end">
@@ -28,7 +28,7 @@
           <select ngModel name="agentMatricule">
             <option value="" selected disabled hidden>Agents</option>
             <option *ngFor="let agent of agents" [ngValue]="agent.matricule">
-              {{ agent.matricule}}
+              {{agent.matricule}}
             </option>
           </select>
         </ion-item>

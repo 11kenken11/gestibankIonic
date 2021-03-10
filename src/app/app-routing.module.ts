@@ -71,6 +71,10 @@ const routes: Routes = [
     path: 'client-dashboard/:email/change-pwd',
     loadChildren: () => import('./client-change-pwd/client-change-pwd.module').then( m => m.ClientChangePwdPageModule)
   },
+  {
+    path: 'forgot-password',
+    loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
+  },
   
 
 ];
