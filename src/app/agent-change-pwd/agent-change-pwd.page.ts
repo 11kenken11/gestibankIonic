@@ -27,7 +27,7 @@ export class AgentChangePwdPage implements OnInit {
           this.agent = new Agent(agent.lastName, agent.firstName, agent.email, agent.tel, form.value.newPwd.trim(), agent.matricule);
 
           this.agent.status = "VALIDE";
-          this.userService.updateUser(this.agent);
+          this.userService.changePwd(this.agent);
           this.presentToast("password updated successfully");
           this.router.navigate(['/agent-dashboard', this.matricule]);
         }

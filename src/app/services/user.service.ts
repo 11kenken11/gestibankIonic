@@ -107,6 +107,19 @@ updateUser(user) {
  }
 
 
+ //change pwd
+changePwd(user) {
+  this.httpClient.put('http://127.0.0.1:85/users-change-pwd/' + user.email, user).subscribe(
+    () => {
+      console.log('user modifiée')
+    }, 
+    (error) => {
+     console.log('erreur : ' + error);
+    }
+  );
+ }
+
+
  getAgents() {
 
   return new Promise(

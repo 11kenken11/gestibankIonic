@@ -29,7 +29,7 @@ export class ClientChangePwdPage implements OnInit {
           this.user.password = form.value.newPwd.trim();
           this.user.status = "VALIDE";
           this.user.role = "CLIENT";
-          this.userService.updateUser(this.user);
+          this.userService.changePwd(this.user);
           this.presentToast("password updated");
           this.router.navigate(['/client-dashboard', this.email]);
         }
