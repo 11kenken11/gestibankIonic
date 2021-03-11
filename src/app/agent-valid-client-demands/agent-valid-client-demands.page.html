@@ -4,6 +4,15 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>Validation des demandes</ion-title>
+    <ion-button
+      [routerLink]="['/agent-dashboard', matricule]"
+      slot="end"
+      color="tertiary"
+      ><ion-icon name="home-outline"></ion-icon
+    ></ion-button>
+    <ion-button [routerLink]="['/login']" slot="end" color="danger"
+      ><ion-icon name="power-outline"></ion-icon
+    ></ion-button>
   </ion-toolbar>
 </ion-header>
 

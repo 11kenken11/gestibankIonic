@@ -3,19 +3,30 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Demande de chèquier</ion-title>
+    <ion-title>Chèquier</ion-title>
+    <ion-button
+      [routerLink]="['/client-dashboard', email]"
+      slot="end"
+      color="tertiary"
+      ><ion-icon name="home-outline"></ion-icon
+    ></ion-button>
+    <ion-button [routerLink]="['/login']" slot="end" color="danger"
+      ><ion-icon name="power-outline"></ion-icon
+    ></ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <form #form="ngForm" (ngSubmit)="login(form)">
-    <ion-row>
-      <ion-col>
-        <ion-button type="submit" color="secondary" expand="block"
-          >Commander</ion-button
-        >
-      </ion-col>
-    </ion-row>
-  </form>
+  <ion-row>
+    <ion-col>
+      <ion-button
+        type="submit"
+        color="secondary"
+        expand="block"
+        (click)="requestCheck()"
+        >Commander</ion-button
+      >
+    </ion-col>
+  </ion-row>
 </ion-content>
 © 2021 Gestibank, Inc.

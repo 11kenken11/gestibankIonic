@@ -1,8 +1,39 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>agent-valid-checks</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Gestion des chèquiers</ion-title>
+    <ion-button
+      [routerLink]="['/agent-dashboard', matricule]"
+      slot="end"
+      color="tertiary"
+      ><ion-icon name="home-outline"></ion-icon
+    ></ion-button>
+    <ion-button [routerLink]="['/login']" slot="end" color="danger"
+      ><ion-icon name="power-outline"></ion-icon
+    ></ion-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content>
+  <!-- List of Text Items -->
+  <ion-list *ngFor="let user of users">
+    <ion-item>
+      <ion-label
+        >{{ user.firstName }} {{user.lastName.toUpperCase()}}</ion-label
+      >
+      <ion-button type="submit" slot="end" (click)="valid(user.email)"
+        >Valider</ion-button
+      >
+      <ion-button
+        type="submit"
+        slot="end"
+        color="danger"
+        (click)="refuse(user.email)"
+        >Refuser</ion-button
+      >
+    </ion-item>
+  </ion-list>
+</ion-content>
 © 2021 Gestibank, Inc.

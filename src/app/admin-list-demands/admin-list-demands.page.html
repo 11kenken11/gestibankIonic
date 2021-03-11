@@ -4,6 +4,13 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>Liste des demandes</ion-title>
+
+    <ion-button [routerLink]="['/admin-dashboard']" slot="end" color="tertiary"
+      ><ion-icon name="home-outline"></ion-icon
+    ></ion-button>
+    <ion-button [routerLink]="['/login']" slot="end" color="danger"
+      ><ion-icon name="power-outline"></ion-icon
+    ></ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -25,7 +32,7 @@
         >
         <ion-item slot="end">
           <!--<ion-label>Agents : </ion-label>-->
-          <select ngModel name="agentMatricule">
+          <select ngModel name="agentMatricule" required>
             <option value="" selected disabled hidden>Agents</option>
             <option *ngFor="let agent of agents" [ngValue]="agent.matricule">
               {{agent.matricule}}

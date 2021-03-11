@@ -9,6 +9,8 @@ export default class User {
     typeCompte: string;
     agentMatricule: string;
     matricule: string;
+    chequier: string;
+
     constructor(lastName: string, firstName: string, email: string, tel: string, typeCompte: string) {
         this.lastName = lastName;
         this.firstName = firstName;

@@ -160,4 +160,53 @@ requestNewPwd(email: string) {
   );
 }
 
+requestCheck(email: string) {
+  this.httpClient.put('http://127.0.0.1:85/check-request/' + email, null).subscribe(
+    () => {
+      console.log('check request sent')
+    }, 
+    (error) => {
+     console.log('erreur : ' + error);
+    }
+  );
+}
+
+
+validCheck(email: string) {
+  this.httpClient.put('http://127.0.0.1:85/valid-check/' + email, null).subscribe(
+    () => {
+      console.log('check request validated')
+    }, 
+    (error) => {
+     console.log('erreur : ' + error);
+    }
+  );
+}
+
+
+rejectCheck(email: string) {
+  this.httpClient.put('http://127.0.0.1:85/reject-check/' + email, null).subscribe(
+    () => {
+      console.log('check request rejected')
+    }, 
+    (error) => {
+     console.log('erreur : ' + error);
+    }
+  );
+}
+
+getCheckRequestByAgent(matricule: string) {
+  return new Promise(
+    (resolve, reject) => {
+      this.httpClient.get<any[]>('http://127.0.0.1:85/list-check/' + matricule).toPromise().then(
+        (response) => {
+          resolve(response.valueOf());
+        }, (error) => {
+          console.log("erreur : " + error);
+        }
+      )
+    }
+  )
+}
+
 }

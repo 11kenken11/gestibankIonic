@@ -4,10 +4,14 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>Création d'un compte</ion-title>
+    <ion-button [routerLink]="['/home']" slot="end" color="tertiary"
+      ><ion-icon name="home-outline"></ion-icon
+    ></ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-img class="logo" src="../assets/logo_gestibank.png" alt="logo"></ion-img>
   <form #form="ngForm" (ngSubmit)="createAccount(form)">
     <ion-item lines="full">
       <ion-label position="floating">Nom</ion-label>

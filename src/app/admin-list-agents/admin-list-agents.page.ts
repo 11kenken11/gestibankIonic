@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 import Agent from '../models/Agent';
 import { UserService } from '../services/user.service';
 
@@ -11,7 +12,7 @@ export class AdminListAgentsPage implements OnInit {
 
   agents: Agent[] = [];
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private toastCtrl: ToastController) { }
 
   ngOnInit() {
     this.refresh();
@@ -30,7 +31,16 @@ export class AdminListAgentsPage implements OnInit {
 
   delete(form) {
     this.userService.deleteUser(form.value.email);
+    this.presentToast("user deleted")
     this.refresh();
+  }
+
+  async presentToast(message: string) {
+    let toast = await this.toastCtrl.create({
+      message: message,
+      duration: 3000
+    });
+    toast.present();
   }
 
 }

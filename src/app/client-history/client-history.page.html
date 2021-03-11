@@ -1,6 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>client-history</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Historique</ion-title>
+    <ion-button
+      [routerLink]="['/client-dashboard', email]"
+      slot="end"
+      color="tertiary"
+      ><ion-icon name="home-outline"></ion-icon
+    ></ion-button>
+    <ion-button [routerLink]="['/login']" slot="end" color="danger"
+      ><ion-icon name="power-outline"></ion-icon
+    ></ion-button>
   </ion-toolbar>
 </ion-header>
 

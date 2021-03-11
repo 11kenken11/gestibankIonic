@@ -4,10 +4,14 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>Connexion</ion-title>
+    <ion-button [routerLink]="['/home']" slot="end" color="tertiary"
+      ><ion-icon name="home-outline"></ion-icon
+    ></ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-img class="logo" src="../assets/logo_gestibank.png" alt="logo"></ion-img>
   <form #form="ngForm" (ngSubmit)="login(form)">
     <ion-item lines="full">
       <ion-label position="floating">Email</ion-label>

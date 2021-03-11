@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import User from '../models/User';
 import { UserService } from '../services/user.service';
 
@@ -12,7 +13,7 @@ export class ClientChangePwdPage implements OnInit {
 
   email;
   user: User;
-  constructor(private route: ActivatedRoute, private userService: UserService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private userService: UserService, private router: Router, private toastCtrl: ToastController) { }
 
   ngOnInit() {
     this.email = this.route.snapshot.params['email'];
@@ -29,10 +30,20 @@ export class ClientChangePwdPage implements OnInit {
           this.user.status = "VALIDE";
           this.user.role = "CLIENT";
           this.userService.updateUser(this.user);
+          this.presentToast("password updated");
           this.router.navigate(['/client-dashboard', this.email]);
         }
       ) 
     }
+  }
+
+
+  async presentToast(message: string) {
+    let toast = await this.toastCtrl.create({
+      message: message,
+      duration: 3000
+    });
+    toast.present();
   }
 
 }

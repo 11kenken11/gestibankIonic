@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import User from '../models/User';
 import { UserService } from '../services/user.service';
 
@@ -14,7 +15,7 @@ export class AgentValidClientDemandsPage implements OnInit {
   user: User;
   users: User[] = [];
 
-  constructor(private userService: UserService, private route: ActivatedRoute) { }
+  constructor(private userService: UserService, private route: ActivatedRoute, private toastCtrl: ToastController) { }
 
   ngOnInit() {
     this.refresh();
@@ -41,6 +42,7 @@ export class AgentValidClientDemandsPage implements OnInit {
         this.user.password = password;
         this.user.status = "VALIDE";
         this.userService.updateUser(this.user);
+        this.presentToast("user account validated");
         this.refresh();
       }
     )
@@ -53,9 +55,18 @@ export class AgentValidClientDemandsPage implements OnInit {
         this.user.agentMatricule = user.agentMatricule;
         this.user.status = "REFUSE";
         this.userService.updateUser(this.user);
+        this.presentToast("user account rejected");
         this.refresh();
       }
     )
+  }
+
+  async presentToast(message: string) {
+    let toast = await this.toastCtrl.create({
+      message: message,
+      duration: 3000
+    });
+    toast.present();
   }
 
 }
